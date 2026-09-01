@@ -18,8 +18,8 @@
   <meta property="og:description" content="Γνωσιακή-Συμπεριφορική Ψυχοθεραπεία (CBT) δια ζώσης στα Τρίκαλα και online. Άγχος, στρες, κρίσεις πανικού, φοβίες, διαχείριση θυμού.">
   <meta property="og:image" content="assets/kressou.webp">
   <meta name="twitter:card" content="summary">
-  <meta name="theme-color" content="#4A3623">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%234A3623'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='%23D9A13B' font-family='Georgia'>Κ</text></svg>">
+  <meta name="theme-color" content="#33241D">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23241811'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='%23D9A13B' font-family='Georgia'>Κ</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet">
@@ -63,15 +63,18 @@
   </script>
   <style>
     :root{
-      --bg:#FAF6EE;
-      --surface:#F2EADA;
-      --ink:#3B2F21;
-      --ink-soft:#6E5D48;
-      --brown:#6B4F33;
-      --brown-deep:#4A3623;
+      /* chocolate palette, sampled from Eva's own practice photography */
+      --bg:#33241D;
+      --surface:#3E2C23;
+      --surface-2:#4A362B;
+      --ink:#F4EBE1;
+      --ink-soft:#C7B3A2;
+      --brown:#E0B37A;
+      --brown-deep:#241811;
       --yellow:#D9A13B;
-      --yellow-soft:#F3E3BC;
-      --line:#E4D8C2;
+      --yellow-soft:#5A4128;
+      --line:rgba(224,179,122,.20);
+      --line-2:rgba(224,179,122,.34);
       --cream:#FBF8F1;
       --rail:88px;
       --serif:"Literata", Georgia, serif;
@@ -88,7 +91,7 @@
       font-size:16.5px;
       overflow-x:hidden;
     }
-    img{max-width:100%;display:block}
+    img{max-width:100%;height:auto;display:block}
     a{color:var(--brown)}
     h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.2}
 
@@ -107,7 +110,7 @@
       flex:1;display:flex;flex-direction:column;justify-content:center;gap:30px;
     }
     .rail-links a{
-      color:#D8CBB8;text-decoration:none;font-size:11.5px;letter-spacing:.14em;
+      color:var(--ink-soft);text-decoration:none;font-size:11.5px;letter-spacing:.14em;
       text-transform:uppercase;writing-mode:vertical-rl;transform:rotate(180deg);
       transition:color .25s;
     }
@@ -124,7 +127,7 @@
     /* ---------- Mobile top bar ---------- */
     .mobilebar{
       display:none;position:fixed;top:0;left:0;right:0;z-index:60;
-      background:rgba(74,54,35,.97);color:var(--cream);
+      background:rgba(36,24,17,.97);color:var(--cream);
       padding:14px 20px;align-items:center;justify-content:space-between;
     }
     .mobilebar .brand{font-family:var(--serif);font-size:19px;color:var(--cream);text-decoration:none}
@@ -174,17 +177,19 @@
       display:inline-block;text-decoration:none;font-weight:600;font-size:15px;
       padding:15px 30px;border-radius:999px;transition:transform .2s, background .2s, color .2s;
     }
-    .btn-primary{background:var(--brown-deep);color:var(--cream)}
-    .btn-primary:hover{background:var(--brown)}
-    .btn-ghost{border:1.5px solid var(--brown);color:var(--brown-deep)}
-    .btn-ghost:hover{background:var(--yellow-soft)}
+    .btn-primary{background:var(--yellow);color:#241811}
+    .btn-primary:hover{background:var(--brown);color:#241811}
+    .btn-ghost{border:1.5px solid var(--line-2);color:var(--ink)}
+    .btn-ghost:hover{background:var(--surface-2);border-color:var(--brown)}
     .hero-side{
-      position:relative;background:var(--surface);
+      position:relative;overflow:hidden;
+      background:linear-gradient(170deg,var(--surface-2) 0%,var(--surface) 55%,var(--brown-deep) 100%);
       display:flex;align-items:center;justify-content:center;padding:110px 60px 90px;
     }
     .hero-side::before{
-      content:"";position:absolute;inset:auto 0 0 0;height:38%;
-      background:var(--yellow-soft);
+      content:"";position:absolute;left:50%;top:44%;width:min(680px,120%);aspect-ratio:1;
+      transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;
+      background:radial-gradient(circle,rgba(217,161,59,.14),transparent 66%);
     }
     .portrait-frame{position:relative;width:min(380px,80%)}
     .portrait-frame::after{
@@ -193,21 +198,21 @@
     }
     .portrait-frame img{
       position:relative;z-index:1;width:100%;aspect-ratio:4/5;object-fit:cover;
-      border-radius:2px;cursor:zoom-in;box-shadow:0 24px 50px -22px rgba(59,47,33,.45);
+      border-radius:2px;cursor:zoom-in;box-shadow:0 24px 50px -22px rgba(0,0,0,.5);
     }
     .cred-strip{
       border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-      background:var(--cream);padding:26px 0;
+      background:var(--surface);padding:26px 0;
     }
     .cred-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
-    .cred-grid strong{font-family:var(--serif);font-size:19px;display:block;color:var(--brown-deep)}
+    .cred-grid strong{font-family:var(--serif);font-size:19px;display:block;color:var(--yellow)}
     .cred-grid span{font-size:13px;color:var(--ink-soft);letter-spacing:.04em}
 
     /* ---------- About ---------- */
     .about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:70px;align-items:start}
     .about-grid p{margin-bottom:18px;color:var(--ink-soft)}
     .about-grid p strong{color:var(--ink)}
-    .edu{background:var(--cream);border:1px solid var(--line);border-radius:10px;padding:34px 32px}
+    .edu{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:34px 32px}
     .edu h3{font-size:20px;margin-bottom:20px}
     .edu ul{list-style:none}
     .edu li{
@@ -222,40 +227,44 @@
     .edu li b{color:var(--ink);display:block;font-weight:600}
 
     /* ---------- Approach ---------- */
-    .approach{background:var(--surface)}
+    .approach{background:var(--brown-deep)}
     .approach-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;margin-top:8px}
-    .approach-card{background:var(--cream);border-radius:10px;padding:40px 38px;border-top:4px solid var(--yellow)}
+    .approach-card{background:var(--surface-2);border-radius:10px;padding:40px 38px;border-top:4px solid var(--yellow)}
     .approach-card h3{font-size:22px;margin-bottom:14px}
     .approach-card p{color:var(--ink-soft);font-size:15.5px}
 
-    /* ---------- Services: alternating editorial bands ---------- */
-    .band{
-      display:grid;grid-template-columns:120px 1fr;gap:40px;
-      padding:52px 0;border-top:1px solid var(--line);align-items:start;
+    /* ---------- Services: lead block + focus cards ---------- */
+    .lead-service{
+      background:var(--surface);border:1px solid var(--line);border-radius:12px;
+      padding:clamp(26px,4vw,44px);margin-top:30px;border-top:4px solid var(--yellow);
     }
-    .band:last-of-type{border-bottom:1px solid var(--line)}
-    .band-num{
-      font-family:var(--serif);font-size:52px;color:var(--yellow);line-height:1;
+    .lead-service h3{font-size:clamp(23px,1.4vw + 18px,29px);margin-bottom:14px}
+    .lead-line{color:var(--ink-soft);margin-bottom:20px}
+    .topic-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:2px 34px}
+    .topic-list li{
+      position:relative;padding:9px 0 9px 24px;font-size:15.5px;color:var(--ink);
+      border-bottom:1px solid var(--line);
     }
-    .band.alt{grid-template-columns:1fr 120px}
-    .band.alt .band-num{order:2;text-align:right}
-    .band.alt .band-body{order:1;text-align:right}
-    .band.alt .tags{justify-content:flex-end}
-    .band h3{font-size:25px;margin-bottom:12px}
-    .band p{color:var(--ink-soft);max-width:62ch;margin-bottom:16px}
-    .band.alt p{margin-left:auto}
-    .tags{display:flex;flex-wrap:wrap;gap:10px}
-    .tags span{
-      font-size:12.5px;letter-spacing:.03em;background:var(--yellow-soft);color:var(--brown-deep);
-      padding:6px 14px;border-radius:999px;font-weight:500;
+    .topic-list li::before{
+      content:"";position:absolute;left:0;top:17px;width:8px;height:8px;
+      border-radius:50%;background:var(--yellow);
     }
+    .lead-foot{margin-top:22px;font-size:14.5px;color:var(--ink-soft);font-style:italic}
+    .focus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:26px}
+    .focus{
+      background:var(--surface-2);border:1px solid var(--line);border-radius:12px;
+      padding:clamp(22px,2.4vw,30px);transition:transform .4s ease,border-color .4s ease;
+    }
+    .focus:hover{transform:translateY(-4px);border-color:var(--line-2)}
+    .focus h3{font-size:20px;margin-bottom:10px}
+    .focus p{color:var(--ink-soft);font-size:15px}
     .services-note{margin-top:26px;font-size:14px;color:var(--ink-soft);font-style:italic}
 
     /* ---------- Framework (Οργάνωση & Πλαίσιο) ---------- */
     .frame{background:var(--brown-deep);color:var(--cream)}
     .frame .kicker{color:var(--yellow)}
     .frame h2{color:var(--cream)}
-    .frame .intro{color:#CBBBA4;max-width:64ch;margin-bottom:48px}
+    .frame .intro{color:var(--ink-soft);max-width:64ch;margin-bottom:48px}
     .frame-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
     .frame-card{
       background:rgba(251,248,241,.06);border:1px solid rgba(217,161,59,.35);
@@ -266,8 +275,20 @@
       display:flex;align-items:center;justify-content:center;font-family:var(--serif);
       font-size:19px;margin-bottom:18px;font-weight:600;
     }
-    .frame-card h3{font-size:19px;margin-bottom:10px;color:var(--yellow-soft)}
-    .frame-card p{font-size:14.5px;color:#CBBBA4;line-height:1.65}
+    .frame-card h3{font-size:19px;margin-bottom:10px;color:var(--yellow)}
+    .frame-card p{font-size:14.5px;color:var(--ink-soft);line-height:1.65}
+
+    /* ---------- Ο χώρος ---------- */
+    .intro-space{color:var(--ink-soft);max-width:64ch;margin-bottom:34px}
+    .space-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .space-grid figure{overflow:hidden;border-radius:12px;border:1px solid var(--line);background:var(--surface)}
+    .space-grid figure.wide{grid-column:span 2}
+    .space-grid img{
+      width:100%;aspect-ratio:4/3;object-fit:cover;cursor:zoom-in;
+      transition:transform 1s cubic-bezier(.22,.61,.36,1);
+    }
+    .space-grid figure.wide img{aspect-ratio:16/9}
+    .space-grid figure:hover img{transform:scale(1.04)}
 
     /* ---------- FAQ ---------- */
     .faq-list{max-width:820px}
@@ -295,7 +316,7 @@
       display:inline-flex;align-items:baseline;gap:10px;margin-bottom:34px;
       font-family:var(--serif);
     }
-    .score b{font-size:56px;color:var(--brown-deep);font-weight:500}
+    .score b{font-size:56px;color:var(--yellow);font-weight:500}
     .score span{color:var(--ink-soft);font-size:14px}
     .stars{color:var(--yellow);font-size:20px;letter-spacing:4px;margin-bottom:10px}
     .quote-stage{position:relative;max-width:780px;margin:0 auto;min-height:220px}
@@ -320,7 +341,7 @@
     /* ---------- Contact band ---------- */
     .contact{background:var(--bg)}
     .contact-band{
-      background:var(--brown-deep);color:var(--cream);border-radius:14px;
+      background:var(--brown-deep);color:var(--cream);border-radius:14px;border:1px solid var(--line);
       padding:70px 64px;display:grid;grid-template-columns:1.2fr .8fr;gap:56px;align-items:center;
       position:relative;overflow:hidden;
     }
@@ -330,14 +351,16 @@
     }
     .contact-band h2{color:var(--cream)}
     .contact-band .kicker{color:var(--yellow)}
-    .contact-band p{color:#CBBBA4;margin-bottom:0}
+    .contact-band p{color:var(--ink-soft);margin-bottom:0}
     .contact-meta{display:flex;flex-direction:column;gap:22px;position:relative;z-index:1}
     .cm{border-left:2px solid var(--yellow);padding-left:18px}
-    .cm b{display:block;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--yellow-soft);margin-bottom:3px}
-    .cm span, .cm a{color:#E8DFCE;font-size:15px;text-decoration:none}
+    .contact-meta a{color:var(--cream);text-decoration:none;border-bottom:1px solid rgba(217,161,59,.5);transition:color .25s,border-color .25s;overflow-wrap:anywhere}
+    .contact-meta a:hover{color:var(--yellow);border-color:var(--yellow)}
+    .cm b{display:block;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--yellow);margin-bottom:3px}
+    .cm span, .cm a{color:var(--line);font-size:15px;text-decoration:none}
     .cm a:hover{color:var(--yellow)}
-    .contact-band .btn-primary{background:var(--yellow);color:var(--brown-deep);margin-top:26px}
-    .contact-band .btn-primary:hover{background:var(--yellow-soft)}
+    .contact-band .btn-primary{background:var(--yellow);color:#241811;margin-top:26px}
+    .contact-band .btn-primary:hover{background:var(--brown)}
 
     /* ---------- Footer ---------- */
     footer{
@@ -349,7 +372,7 @@
 
     /* ---------- Lightbox ---------- */
     .lightbox{
-      display:none;position:fixed;inset:0;z-index:90;background:rgba(40,31,20,.92);
+      display:none;position:fixed;inset:0;z-index:90;background:rgba(26,17,12,.94);
       align-items:center;justify-content:center;padding:40px;
     }
     .lightbox.open{display:flex}
@@ -380,17 +403,17 @@
       .hero-side{order:1;padding:56px 24px 44px}
       .about-grid,.approach-grid{grid-template-columns:1fr;gap:36px}
       .frame-grid{grid-template-columns:1fr 1fr}
+      .focus-grid{grid-template-columns:1fr}
+      .topic-list{grid-template-columns:1fr}
+      .space-grid{grid-template-columns:1fr}
+      .space-grid figure.wide{grid-column:span 1}
       .contact-band{grid-template-columns:1fr;padding:48px 32px;gap:36px}
       .cred-grid{grid-template-columns:1fr 1fr;gap:20px}
     }
     @media (max-width:640px){
-      .band,.band.alt{grid-template-columns:1fr;gap:8px}
-      .band.alt .band-body{order:1;text-align:left}
-      .band.alt .band-num{order:0;text-align:left}
-      .band.alt .tags{justify-content:flex-start}
-      .band.alt p{margin-left:0}
-      .band-num{font-size:38px}
+      .topic-list{grid-template-columns:1fr}
       .frame-grid{grid-template-columns:1fr}
+      .space-grid{grid-template-columns:1fr}
       .quote-stage{min-height:300px}
       .hero h1{font-size:34px}
     }
@@ -405,12 +428,12 @@
       <a href="#about" data-el="Προφίλ" data-en="About" data-de="Profil">Προφίλ</a>
       <a href="#services" data-el="Υπηρεσίες" data-en="Services" data-de="Leistungen">Υπηρεσίες</a>
       <a href="#framework" data-el="Συνεδρίες" data-en="Sessions" data-de="Sitzungen">Συνεδρίες</a>
+      <a href="#space" data-el="Ο χώρος" data-de="Der Raum">Ο χώρος</a>
       <a href="#faq" data-el="Ερωτήσεις" data-en="FAQ" data-de="FAQ">Ερωτήσεις</a>
       <a href="#contact" data-el="Επικοινωνία" data-en="Contact" data-de="Kontakt">Επικοινωνία</a>
     </div>
     <div class="lang" role="group" aria-label="Γλώσσα / Language">
       <button type="button" class="active" data-setlang="el" aria-label="Ελληνικά">🇬🇷</button>
-      <button type="button" data-setlang="en" aria-label="English">🇬🇧</button>
       <button type="button" data-setlang="de" aria-label="Deutsch">🇩🇪</button>
     </div>
   </nav>
@@ -431,7 +454,6 @@
     <a href="#contact" data-el="Επικοινωνία" data-en="Contact" data-de="Kontakt">Επικοινωνία</a>
     <div class="lang" role="group" aria-label="Γλώσσα / Language">
       <button type="button" class="active" data-setlang="el" aria-label="Ελληνικά">🇬🇷</button>
-      <button type="button" data-setlang="en" aria-label="English">🇬🇧</button>
       <button type="button" data-setlang="de" aria-label="Deutsch">🇩🇪</button>
     </div>
   </nav>
@@ -447,7 +469,7 @@
           <p class="role" data-el="Γνωσιακή-Συμπεριφορική Ψυχοθεραπεία, δια ζώσης &amp; online" data-en="Cognitive Behavioural Therapy, in person &amp; online" data-de="Kognitive Verhaltenstherapie, vor Ort &amp; online">Γνωσιακή-Συμπεριφορική Ψυχοθεραπεία, δια ζώσης &amp; online</p>
           <p class="lead" data-el="Ένας ήρεμος, ασφαλής χώρος για να κατανοήσετε τον εαυτό σας, να επεξεργαστείτε όσα σας δυσκολεύουν και να χτίσετε, βήμα βήμα, μια πιο λειτουργική καθημερινότητα." data-en="A calm, safe space to understand yourself, work through what weighs on you and build, step by step, a more balanced everyday life." data-de="Ein ruhiger, sicherer Raum, um sich selbst zu verstehen, Belastendes zu verarbeiten und Schritt für Schritt einen funktionaleren Alltag aufzubauen.">Ένας ήρεμος, ασφαλής χώρος για να κατανοήσετε τον εαυτό σας, να επεξεργαστείτε όσα σας δυσκολεύουν και να χτίσετε, βήμα βήμα, μια πιο λειτουργική καθημερινότητα.</p>
           <div class="hero-ctas">
-            <a class="btn btn-primary" href="https://www.doctoranytime.gr/d/Psychologos/kressou-eua" target="_blank" rel="noopener" data-el="Κλείστε ραντεβού" data-en="Book a session" data-de="Termin vereinbaren">Κλείστε ραντεβού</a>
+            <a class="btn btn-primary" href="#contact" data-el="Κλείστε ραντεβού" data-en="Book a session" data-de="Termin vereinbaren">Κλείστε ραντεβού</a>
             <a class="btn btn-ghost" href="#about" data-el="Γνωρίστε με" data-en="Get to know me" data-de="Mich kennenlernen">Γνωρίστε με</a>
           </div>
         </div>
@@ -464,7 +486,7 @@
       <div class="wrap cred-grid">
         <div><strong data-el="Άδεια Ασκήσεως 4421" data-en="License No. 4421" data-de="Berufslizenz Nr. 4421">Άδεια Ασκήσεως 4421</strong><span data-el="Ψυχολόγου" data-en="Licensed Psychologist" data-de="Psychologin">Ψυχολόγου</span></div>
         <div><strong>MSc</strong><span data-el="Ιατρική Σχολή ΕΚΠΑ" data-en="Medical School, Univ. of Athens" data-de="Medizinische Fakultät EKPA">Ιατρική Σχολή ΕΚΠΑ</span></div>
-        <div><strong>CBT · CFT</strong><span data-el="Θεραπευτική εξειδίκευση" data-en="Therapeutic specialisation" data-de="Therapeutische Spezialisierung">Θεραπευτική εξειδίκευση</span></div>
+        <div><strong>CBT</strong><span data-el="Θεραπευτική εξειδίκευση" data-en="Therapeutic specialisation" data-de="Therapeutische Spezialisierung">Θεραπευτική εξειδίκευση</span></div>
         <div><strong>EL · DE</strong><span data-el="Συνεδρίες σε 2 γλώσσες" data-en="Sessions in 2 languages" data-de="Sitzungen in 2 Sprachen">Συνεδρίες σε 2 γλώσσες</span></div>
       </div>
     </div>
@@ -477,7 +499,7 @@
           <div class="reveal">
             <h2 data-el="Με σεβασμό στη δική σας διαδρομή" data-en="With respect for your own journey" data-de="Mit Respekt für Ihren eigenen Weg">Με σεβασμό στη δική σας διαδρομή</h2>
             <p data-el="Ονομάζομαι Εύα Κρέσσου και είμαι Ψυχολόγος – Ψυχοθεραπεύτρια, με έδρα τα Τρίκαλα. Είμαι απόφοιτη του Τμήματος Ψυχολογίας του Παντείου Πανεπιστημίου και κάτοχος Μεταπτυχιακού τίτλου από την Ιατρική Σχολή του Εθνικού και Καποδιστριακού Πανεπιστημίου Αθηνών, με αντικείμενο «Η Επιστήμη του Στρες και η Προαγωγή της Υγείας»." data-en="My name is Eva Kressou and I am a Psychologist and Psychotherapist based in Trikala, Greece. I graduated from the Department of Psychology at Panteion University and hold an MSc from the Medical School of the National and Kapodistrian University of Athens in “The Science of Stress and Health Promotion”." data-de="Mein Name ist Eva Kressou und ich bin Psychologin und Psychotherapeutin mit Sitz in Trikala. Ich bin Absolventin der Psychologie der Panteion-Universität und halte einen Master-Abschluss der Medizinischen Fakultät der Nationalen und Kapodistrias-Universität Athen zum Thema „Die Wissenschaft von Stress und Gesundheitsförderung“.">Ονομάζομαι Εύα Κρέσσου και είμαι Ψυχολόγος – Ψυχοθεραπεύτρια, με έδρα τα Τρίκαλα. Είμαι απόφοιτη του Τμήματος Ψυχολογίας του Παντείου Πανεπιστημίου και κάτοχος Μεταπτυχιακού τίτλου από την Ιατρική Σχολή του Εθνικού και Καποδιστριακού Πανεπιστημίου Αθηνών, με αντικείμενο «Η Επιστήμη του Στρες και η Προαγωγή της Υγείας».</p>
-            <p data-el="Έχω εξειδικευτεί στη Γνωσιακή-Συμπεριφορική Ψυχοθεραπεία (CBT) στο Ινστιτούτο Έρευνας και Θεραπείας της Συμπεριφοράς (ΙΕΘΣ) και έχω εκπαιδευτεί στη Θεραπεία Εστιασμένη στη Συμπόνια (Compassion Focused Therapy – CFT). Η κλινική μου εμπειρία ξεκίνησε στην Υπηρεσία Κοινωνικής Ψυχιατρικής Αθήνας του Ελληνικού Κέντρου Ψυχικής Υγιεινής και Ερευνών (Ε.ΚΕ.Ψ.Υ.Ε.), ενώ έχω παρακολουθήσει εξειδικευμένες επιμορφώσεις για τις αγχώδεις διαταραχές και τη ΔΕΠΥ σε παιδιά και εφήβους." data-en="I specialised in Cognitive Behavioural Therapy (CBT) at the Institute of Behaviour Research and Therapy (IBRT, Athens) and trained in Compassion Focused Therapy (CFT). My clinical experience began at the Athens Community Psychiatry Service of the Hellenic Centre for Mental Health and Research, and I have completed further specialised training in anxiety disorders and ADHD in children and adolescents." data-de="Ich habe mich am Institut für Verhaltensforschung und -therapie (IBRT) auf Kognitive Verhaltenstherapie (CBT) spezialisiert und bin in Compassion Focused Therapy (CFT) ausgebildet. Meine klinische Erfahrung begann beim Sozialpsychiatrischen Dienst Athen des Griechischen Zentrums für Seelische Hygiene und Forschung (E.KE.Ψ.Υ.Ε.), zudem habe ich spezialisierte Fortbildungen zu Angststörungen und ADHS bei Kindern und Jugendlichen absolviert.">Έχω εξειδικευτεί στη Γνωσιακή-Συμπεριφορική Ψυχοθεραπεία (CBT) στο Ινστιτούτο Έρευνας και Θεραπείας της Συμπεριφοράς (ΙΕΘΣ) και έχω εκπαιδευτεί στη Θεραπεία Εστιασμένη στη Συμπόνια (Compassion Focused Therapy – CFT). Η κλινική μου εμπειρία ξεκίνησε στην Υπηρεσία Κοινωνικής Ψυχιατρικής Αθήνας του Ελληνικού Κέντρου Ψυχικής Υγιεινής και Ερευνών (Ε.ΚΕ.Ψ.Υ.Ε.), ενώ έχω παρακολουθήσει εξειδικευμένες επιμορφώσεις για τις αγχώδεις διαταραχές και τη ΔΕΠΥ σε παιδιά και εφήβους.</p>
+            <p data-el="Έχω εκπαιδευτεί στη Γνωσιακή-Συμπεριφοριστική Ψυχοθεραπεία (CBT) στην Εταιρεία Γνωσιακών Συμπεριφοριστικών Σπουδών, ολοκληρώνοντας το τετραετές εκπαιδευτικό πρόγραμμα, και έχω εκπαιδευτεί στη Θεραπεία Εστιασμένη στη Συμπόνια (Compassion Focused Therapy — CFT)." data-de="Ich bin in Kognitiver Verhaltenstherapie (CBT) bei der Gesellschaft für Kognitiv-Behaviorale Studien ausgebildet und habe dort das vierjährige Ausbildungsprogramm abgeschlossen; außerdem bin ich in Compassion Focused Therapy (CFT) ausgebildet.">Έχω εκπαιδευτεί στη Γνωσιακή-Συμπεριφοριστική Ψυχοθεραπεία (CBT) στην Εταιρεία Γνωσιακών Συμπεριφοριστικών Σπουδών, ολοκληρώνοντας το τετραετές εκπαιδευτικό πρόγραμμα, και έχω εκπαιδευτεί στη Θεραπεία Εστιασμένη στη Συμπόνια (Compassion Focused Therapy — CFT).</p>
             <p data-el="Στη δουλειά μου με ενήλικες συναντώ καθημερινά το άγχος, το στρες, τις κρίσεις πανικού, τις φοβίες και τον θυμό — όχι ως «ετικέτες», αλλά ως εμπειρίες που έχουν νόημα και ιστορία. Στόχος μας δεν είναι απλώς να «φύγει» το σύμπτωμα, αλλά να κατανοήσετε πώς λειτουργεί, τι το συντηρεί και πώς μπορείτε να ανταποκριθείτε διαφορετικά. Οι συνεδρίες πραγματοποιούνται δια ζώσης και online, στα ελληνικά και στα γερμανικά." data-en="In my work with adults I meet anxiety, stress, panic attacks, phobias and anger every day — not as “labels”, but as experiences with their own meaning and history. Our goal is not simply to make a symptom disappear, but to understand how it works, what keeps it going, and how you can respond differently. Sessions are held in person and online, in Greek and in German." data-de="In meiner Arbeit mit Erwachsenen begegnen mir täglich Angst, Stress, Panikattacken, Phobien und Wut — nicht als „Etiketten“, sondern als Erfahrungen mit Sinn und Geschichte. Unser Ziel ist es nicht einfach, dass das Symptom „verschwindet“, sondern zu verstehen, wie es funktioniert, was es aufrechtenerhält und wie Sie anders darauf reagieren können. Die Sitzungen finden vor Ort und online, auf Griechisch und auf Deutsch statt.">Στη δουλειά μου με ενήλικες συναντώ καθημερινά το άγχος, το στρες, τις κρίσεις πανικού, τις φοβίες και τον θυμό — όχι ως «ετικέτες», αλλά ως εμπειρίες που έχουν νόημα και ιστορία. Στόχος μας δεν είναι απλώς να «φύγει» το σύμπτωμα, αλλά να κατανοήσετε πώς λειτουργεί, τι το συντηρεί και πώς μπορείτε να ανταποκριθείτε διαφορετικά. Οι συνεδρίες πραγματοποιούνται δια ζώσης και online, στα ελληνικά και στα γερμανικά.</p>
           </div>
           <aside class="edu reveal">
@@ -485,9 +507,8 @@
             <ul>
               <li><b data-el="Πτυχίο Ψυχολογίας" data-en="BSc in Psychology" data-de="Bachelor in Psychologie">Πτυχίο Ψυχολογίας</b><span data-el="Πάντειο Πανεπιστήμιο Κοινωνικών &amp; Πολιτικών Επιστημών" data-en="Panteion University of Social &amp; Political Sciences" data-de="Panteion-Universität für Sozial- und Politikwissenschaften">Πάντειο Πανεπιστήμιο Κοινωνικών &amp; Πολιτικών Επιστημών</span></li>
               <li><b data-el="MSc «Η Επιστήμη του Στρες &amp; η Προαγωγή της Υγείας»" data-en="MSc “The Science of Stress &amp; Health Promotion”" data-de="MSc „Die Wissenschaft von Stress &amp; Gesundheitsförderung“">MSc «Η Επιστήμη του Στρες &amp; η Προαγωγή της Υγείας»</b><span data-el="Ιατρική Σχολή, ΕΚΠΑ" data-en="Medical School, University of Athens" data-de="Medizinische Fakultät, EKPA">Ιατρική Σχολή, ΕΚΠΑ</span></li>
-              <li><b data-el="Ειδίκευση στη Γνωσιακή-Συμπεριφορική Ψυχοθεραπεία (CBT)" data-en="Specialisation in Cognitive Behavioural Therapy (CBT)" data-de="Spezialisierung in Kognitiver Verhaltenstherapie (CBT)">Ειδίκευση στη Γνωσιακή-Συμπεριφορική Ψυχοθεραπεία (CBT)</b><span data-el="Ινστιτούτο Έρευνας &amp; Θεραπείας της Συμπεριφοράς (ΙΕΘΣ)" data-en="Institute of Behaviour Research &amp; Therapy (IBRT)" data-de="Institut für Verhaltensforschung &amp; -therapie (IBRT)">Ινστιτούτο Έρευνας &amp; Θεραπείας της Συμπεριφοράς (ΙΕΘΣ)</span></li>
+              <li><b data-el="Ειδίκευση στη Γνωσιακή-Συμπεριφορική Ψυχοθεραπεία (CBT)" data-en="Specialisation in Cognitive Behavioural Therapy (CBT)" data-de="Spezialisierung in Kognitiver Verhaltenstherapie (CBT)">Ειδίκευση στη Γνωσιακή-Συμπεριφορική Ψυχοθεραπεία (CBT)</b><span data-el="Εταιρεία Γνωσιακών Συμπεριφοριστικών Σπουδών — τετραετές πρόγραμμα" data-de="Gesellschaft für Kognitiv-Behaviorale Studien — vierjähriges Programm">Εταιρεία Γνωσιακών Συμπεριφοριστικών Σπουδών — τετραετές πρόγραμμα</span></li>
               <li><b data-el="Εκπαίδευση στη Compassion Focused Therapy (CFT)" data-en="Training in Compassion Focused Therapy (CFT)" data-de="Ausbildung in Compassion Focused Therapy (CFT)">Εκπαίδευση στη Compassion Focused Therapy (CFT)</b><span data-el="Θεραπεία Εστιασμένη στη Συμπόνια" data-en="Compassion-focused therapeutic approach" data-de="Mitgefühlfokussierte Therapie">Θεραπεία Εστιασμένη στη Συμπόνια</span></li>
-              <li><b data-el="Επιμορφώσεις: Αγχώδεις διαταραχές · ΔΕΠΥ" data-en="Further training: Anxiety disorders · ADHD" data-de="Fortbildungen: Angststörungen · ADHS">Επιμορφώσεις: Αγχώδεις διαταραχές · ΔΕΠΥ</b><span data-el="Σε παιδιά και εφήβους" data-en="In children and adolescents" data-de="Bei Kindern und Jugendlichen">Σε παιδιά και εφήβους</span></li>
               <li><b data-el="Κλινική πρακτική" data-en="Clinical internship" data-de="Klinisches Praktikum">Κλινική πρακτική</b><span data-el="Υπηρεσία Κοινωνικής Ψυχιατρικής Αθήνας, Ε.ΚΕ.Ψ.Υ.Ε." data-en="Athens Community Psychiatry Service, H.C.M.H.R." data-de="Sozialpsychiatrischer Dienst Athen, E.KE.Ψ.Υ.Ε.">Υπηρεσία Κοινωνικής Ψυχιατρικής Αθήνας, Ε.ΚΕ.Ψ.Υ.Ε.</span></li>
             </ul>
           </aside>
@@ -519,53 +540,35 @@
         <p class="kicker reveal" data-el="Υπηρεσίες" data-en="Services" data-de="Leistungen">Υπηρεσίες</p>
         <h2 class="reveal" data-el="Σε τι μπορώ να σας βοηθήσω" data-en="How I can help" data-de="Wie ich Ihnen helfen kann">Σε τι μπορώ να σας βοηθήσω</h2>
 
-        <article class="band reveal">
-          <div class="band-num">01</div>
-          <div class="band-body">
+        <article class="lead-service reveal">
+          <h3 data-el="Ψυχοθεραπεία Ενηλίκων" data-en="Adult Psychotherapy" data-de="Erwachsenenpsychotherapie">Ψυχοθεραπεία Ενηλίκων</h3>
+          <p class="lead-line" data-el="Ατομικές συνεδρίες ψυχοθεραπείας για ό,τι σας απασχολεί, όπως ενδεικτικά:" data-de="Einzelpsychotherapiesitzungen für alles, was Sie beschäftigt, zum Beispiel:">Ατομικές συνεδρίες ψυχοθεραπείας για ό,τι σας απασχολεί, όπως ενδεικτικά:</p>
+          <ul class="topic-list">
+            <li data-el="Άγχος &amp; στρες" data-de="Angst &amp; Stress">Άγχος &amp; στρες</li>
+            <li data-el="Κρίσεις πανικού &amp; φοβίες" data-de="Panikattacken &amp; Phobien">Κρίσεις πανικού &amp; φοβίες</li>
+            <li data-el="Διαχείριση θυμού" data-de="Wutbewältigung">Διαχείριση θυμού</li>
+            <li data-el="Ιδεοψυχαναγκαστικές σκέψεις και συμπεριφορές" data-de="Zwangsgedanken und -verhalten">Ιδεοψυχαναγκαστικές σκέψεις και συμπεριφορές</li>
+            <li data-el="Εξουθένωση, χαμηλή διάθεση και συμπτώματα κατάθλιψης" data-de="Erschöpfung, gedrückte Stimmung und depressive Symptome">Εξουθένωση, χαμηλή διάθεση και συμπτώματα κατάθλιψης</li>
+            <li data-el="Χαμηλή αυτοεκτίμηση" data-de="Geringes Selbstwertgefühl">Χαμηλή αυτοεκτίμηση</li>
+            <li data-el="Μεταβάσεις ζωής" data-de="Lebensübergänge">Μεταβάσεις ζωής</li>
+          </ul>
+          <p class="lead-foot" data-el="Δια ζώσης στα Τρίκαλα ή μέσω βιντεοκλήσης — στα ελληνικά ή στα γερμανικά." data-de="Vor Ort in Trikala oder per Videocall — auf Griechisch oder auf Deutsch.">Δια ζώσης στα Τρίκαλα ή μέσω βιντεοκλήσης — στα ελληνικά ή στα γερμανικά.</p>
+        </article>
+
+        <div class="focus-grid">
+          <article class="focus reveal">
             <h3 data-el="Άγχος &amp; Στρες" data-en="Anxiety &amp; Stress" data-de="Angst &amp; Stress">Άγχος &amp; Στρες</h3>
             <p data-el="Το αντικείμενο του μεταπτυχιακού μου και ο πυρήνας της δουλειάς μου. Μαθαίνουμε πώς λειτουργεί το στρες στο σώμα και στη σκέψη, εντοπίζουμε τις πηγές και τα μοτίβα του και χτίζουμε πρακτικές δεξιότητες διαχείρισης που αντέχουν στην καθημερινότητα." data-en="The subject of my MSc and the core of my work. We learn how stress operates in the body and the mind, identify its sources and patterns, and build practical coping skills that hold up in everyday life." data-de="Der Gegenstand meines Masterstudiums und der Kern meiner Arbeit. Wir lernen, wie Stress im Körper und im Denken funktioniert, identifizieren seine Quellen und Muster und bauen praktische Bewältigungsfähigkeiten auf, die im Alltag Bestand haben.">Το αντικείμενο του μεταπτυχιακού μου και ο πυρήνας της δουλειάς μου. Μαθαίνουμε πώς λειτουργεί το στρες στο σώμα και στη σκέψη, εντοπίζουμε τις πηγές και τα μοτίβα του και χτίζουμε πρακτικές δεξιότητες διαχείρισης που αντέχουν στην καθημερινότητα.</p>
-            <div class="tags">
-              <span data-el="Συμβουλευτική άγχους &amp; στρες" data-en="Anxiety &amp; stress counselling" data-de="Angst- &amp; Stressberatung">Συμβουλευτική άγχους &amp; στρες</span>
-              <span data-el="Διαχείριση στρες" data-en="Stress management" data-de="Stressbewältigung">Διαχείριση στρες</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="band alt reveal">
-          <div class="band-num">02</div>
-          <div class="band-body">
+          </article>
+          <article class="focus reveal">
             <h3 data-el="Κρίσεις Πανικού &amp; Φοβίες" data-en="Panic Attacks &amp; Phobias" data-de="Panikattacken &amp; Phobien">Κρίσεις Πανικού &amp; Φοβίες</h3>
             <p data-el="Ο πανικός και οι φοβίες στενεύουν σταδιακά τη ζωή, όσο τους αποφεύγουμε. Με τα εργαλεία της CBT κατανοούμε τον «κύκλο» του πανικού, δουλεύουμε με σταδιακή, ασφαλή έκθεση και ανακτάτε το έδαφος που έχει χαθεί — με τον δικό σας ρυθμό." data-en="Panic and phobias gradually narrow life the more we avoid them. Using CBT tools we come to understand the panic “cycle”, work with gradual, safe exposure, and you reclaim the ground that has been lost — at your own pace." data-de="Panik und Phobien engen das Leben schrittweise ein, je mehr wir sie vermeiden. Mit den Werkzeugen der CBT verstehen wir den „Kreislauf“ der Panik, arbeiten mit schrittweiser, sicherer Exposition und Sie gewinnen verlorenen Boden zurück — in Ihrem eigenen Tempo.">Ο πανικός και οι φοβίες στενεύουν σταδιακά τη ζωή, όσο τους αποφεύγουμε. Με τα εργαλεία της CBT κατανοούμε τον «κύκλο» του πανικού, δουλεύουμε με σταδιακή, ασφαλή έκθεση και ανακτάτε το έδαφος που έχει χαθεί — με τον δικό σας ρυθμό.</p>
-            <div class="tags">
-              <span data-el="Διαχείριση κρίσεων πανικού" data-en="Panic attack management" data-de="Bewältigung von Panikattacken">Διαχείριση κρίσεων πανικού</span>
-              <span data-el="Αντιμετώπιση φοβιών" data-en="Phobia treatment" data-de="Phobiebehandlung">Αντιμετώπιση φοβιών</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="band reveal">
-          <div class="band-num">03</div>
-          <div class="band-body">
+          </article>
+          <article class="focus reveal">
             <h3 data-el="Διαχείριση Θυμού" data-en="Anger Management" data-de="Wutbewältigung">Διαχείριση Θυμού</h3>
             <p data-el="Ο θυμός είναι φυσιολογικό συναίσθημα — ο τρόπος που εκφράζεται είναι που συχνά πληγώνει σχέσεις και εαυτό. Διερευνούμε τι κρύβεται πίσω από την ένταση, αναγνωρίζουμε έγκαιρα τα σημάδια της και χτίζουμε πιο λειτουργικούς τρόπους έκφρασης και οριοθέτησης." data-en="Anger is a normal emotion — it is how it gets expressed that often hurts relationships and self. We explore what lies beneath the tension, learn to recognise its early signs, and build healthier ways of expressing it and setting boundaries." data-de="Wut ist ein normales Gefühl — die Art und Weise, wie sie ausgedrückt wird, verletzt oft Beziehungen und das Selbst. Wir untersuchen, was hinter der Anspannung steckt, erkennen ihre frühen Anzeichen rechtzeitig und bauen funktionale Ausdrucks- und Abgrenzungsformen auf.">Ο θυμός είναι φυσιολογικό συναίσθημα — ο τρόπος που εκφράζεται είναι που συχνά πληγώνει σχέσεις και εαυτό. Διερευνούμε τι κρύβεται πίσω από την ένταση, αναγνωρίζουμε έγκαιρα τα σημάδια της και χτίζουμε πιο λειτουργικούς τρόπους έκφρασης και οριοθέτησης.</p>
-            <div class="tags">
-              <span data-el="Συμβουλευτική διαχείρισης θυμού" data-en="Anger management counselling" data-de="Wutbewältigungsberatung">Συμβουλευτική διαχείρισης θυμού</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="band alt reveal">
-          <div class="band-num">04</div>
-          <div class="band-body">
-            <h3 data-el="Ψυχοθεραπεία Ενηλίκων" data-en="Adult Psychotherapy" data-de="Erwachsenenpsychotherapie">Ψυχοθεραπεία Ενηλίκων</h3>
-            <p data-el="Ατομικές συνεδρίες ψυχοθεραπείας για ό,τι σας απασχολεί: μεταβάσεις ζωής, σχέσεις, αυτοεκτίμηση, εξουθένωση, δύσκολα συναισθήματα. Δια ζώσης στα Τρίκαλα ή μέσω βιντεοκλήσης — στα ελληνικά ή στα γερμανικά." data-en="Individual psychotherapy sessions for whatever concerns you: life transitions, relationships, self-esteem, burnout, difficult emotions. In person in Trikala or via video call — in Greek or in German." data-de="Einzelpsychotherapiesitzungen für alles, was Sie beschäftigt: Lebensübergänge, Beziehungen, Selbstwertgefühl, Burnout, schwierige Gefühle. Vor Ort in Trikala oder per Videocall — auf Griechisch oder auf Deutsch.">Ατομικές συνεδρίες ψυχοθεραπείας για ό,τι σας απασχολεί: μεταβάσεις ζωής, σχέσεις, αυτοεκτίμηση, εξουθένωση, δύσκολα συναισθήματα. Δια ζώσης στα Τρίκαλα ή μέσω βιντεοκλήσης — στα ελληνικά ή στα γερμανικά.</p>
-            <div class="tags">
-              <span data-el="Ψυχοθεραπεία ενηλίκων" data-en="Adult psychotherapy" data-de="Erwachsenenpsychotherapie">Ψυχοθεραπεία ενηλίκων</span>
-              <span data-el="Γνωσιακή-Συμπεριφορική ψυχοθεραπεία" data-en="Cognitive Behavioural psychotherapy" data-de="Kognitive Verhaltenspsychotherapie">Γνωσιακή-Συμπεριφορική ψυχοθεραπεία</span>
-              <span data-el="Συνεδρίες μέσω βιντεοκλήσης" data-en="Video call sessions" data-de="Videocall-Sitzungen">Συνεδρίες μέσω βιντεοκλήσης</span>
-            </div>
-          </div>
-        </article>
+          </article>
+        </div>
 
         <p class="services-note reveal" data-el="Όλες οι συνεδρίες έχουν διάρκεια 50 λεπτών. Δεν παρέχεται ηλεκτρονική συνταγογράφηση." data-en="All sessions last 50 minutes. E-prescription services are not provided." data-de="Alle Sitzungen dauern 50 Minuten. Es wird keine elektronische Verschreibung ausgestellt.">Όλες οι συνεδρίες έχουν διάρκεια 50 λεπτών. Δεν παρέχεται ηλεκτρονική συνταγογράφηση.</p>
       </div>
@@ -576,7 +579,7 @@
       <div class="wrap">
         <p class="kicker reveal" data-el="Οργάνωση &amp; Πλαίσιο Συνεδριών" data-en="Session Structure &amp; Framework" data-de="Sitzungsstruktur &amp; Rahmen">Οργάνωση &amp; Πλαίσιο Συνεδριών</p>
         <h2 class="reveal" data-el="Ένα σταθερό πλαίσιο, για να νιώθετε ασφάλεια" data-en="A steady framework, so you can feel safe" data-de="Ein stabiler Rahmen, damit Sie sich sicher fühlen">Ένα σταθερό πλαίσιο, για να νιώθετε ασφάλεια</h2>
-        <p class="intro reveal" data-el="Η ψυχοθεραπεία λειτουργεί καλύτερα όταν υπάρχει σαφήνεια. Γι' αυτό, από την πρώτη συνεδρία συμφωνούμε μαζί το πλαίσιο της συνεργασίας μας — τι να περιμένετε, πώς δουλεύουμε και τι ισχύει πρακτικά." data-en="Psychotherapy works best when things are clear. That is why, from the very first session, we agree on the framework of our work together — what to expect, how we work, and the practical arrangements." data-de="Psychotherapie funktioniert am besten, wenn Klarheit herrscht. Deshalb vereinbaren wir bereits in der ersten Sitzung gemeinsam den Rahmen unserer Zusammenarbeit — was Sie erwarten können, wie wir arbeiten und welche praktischen Bedingungen gelten.">Η ψυχοθεραπεία λειτουργεί καλύτερα όταν υπάρχει σαφήνεια. Γι' αυτό, από την πρώτη συνεδρία συμφωνούμε μαζί το πλαίσιο της συνεργασίας μας — τι να περιμένετε, πώς δουλεύουμε και τι ισχύει πρακτικά.</p>
+        <p class="intro reveal" data-el="Η ψυχοθεραπεία λειτουργεί καλύτερα όταν υπάρχει σαφήνεια. Γι' αυτό, η θεραπεία ξεκινά με μια αρχική τηλεφωνική επικοινωνία, όπου συζητείται σύντομα το αίτημα της θεραπείας. Οι πρώτες συνεδρίες είναι διερευνητικές και έχουν ως στόχο να εκτιμηθεί αν η συγκεκριμένη θεραπευτική προσέγγιση είναι κατάλληλη για εσάς." data-en="Psychotherapy works best when things are clear. That is why, from the very first session, we agree on the framework of our work together — what to expect, how we work, and the practical arrangements." data-de="Psychotherapie funktioniert am besten, wenn Klarheit herrscht. Deshalb vereinbaren wir bereits in der ersten Sitzung gemeinsam den Rahmen unserer Zusammenarbeit — was Sie erwarten können, wie wir arbeiten und welche praktischen Bedingungen gelten.">Η ψυχοθεραπεία λειτουργεί καλύτερα όταν υπάρχει σαφήνεια. Γι' αυτό, η θεραπεία ξεκινά με μια αρχική τηλεφωνική επικοινωνία, όπου συζητείται σύντομα το αίτημα της θεραπείας. Οι πρώτες συνεδρίες είναι διερευνητικές και έχουν ως στόχο να εκτιμηθεί αν η συγκεκριμένη θεραπευτική προσέγγιση είναι κατάλληλη για εσάς.</p>
         <div class="frame-grid">
           <div class="frame-card reveal">
             <div class="fc-icon">50΄</div>
@@ -586,7 +589,7 @@
           <div class="frame-card reveal">
             <div class="fc-icon">↻</div>
             <h3 data-el="Συχνότητα" data-en="Frequency" data-de="Frequenz">Συχνότητα</h3>
-            <p data-el="Συνήθως ξεκινάμε με εβδομαδιαίες συνεδρίες, σε σταθερή ημέρα και ώρα. Καθώς η θεραπεία προχωρά, η συχνότητα επαναξιολογείται μαζί, ανάλογα με τις ανάγκες και την πορεία σας." data-en="We usually begin with weekly sessions, at a fixed day and time. As therapy progresses, frequency is reviewed together, according to your needs and progress." data-de="Normalerweise beginnen wir mit wöchentlichen Sitzungen an einem festen Tag und zu einer festen Uhrzeit. Im Laufe der Therapie wird die Frequenz gemeinsam neu bewertet, je nach Ihren Bedürfnissen und Ihrem Fortschritt.">Συνήθως ξεκινάμε με εβδομαδιαίες συνεδρίες, σε σταθερή ημέρα και ώρα. Καθώς η θεραπεία προχωρά, η συχνότητα επαναξιολογείται μαζί, ανάλογα με τις ανάγκες και την πορεία σας.</p>
+            <p data-el="Συνήθως ξεκινάμε με εβδομαδιαίες συνεδρίες. Καθώς η θεραπεία προχωρά, η συχνότητα επαναξιολογείται μαζί, ανάλογα με τις ανάγκες και την πορεία σας." data-en="We usually begin with weekly sessions, at a fixed day and time. As therapy progresses, frequency is reviewed together, according to your needs and progress." data-de="Normalerweise beginnen wir mit wöchentlichen Sitzungen an einem festen Tag und zu einer festen Uhrzeit. Im Laufe der Therapie wird die Frequenz gemeinsam neu bewertet, je nach Ihren Bedürfnissen und Ihrem Fortschritt.">Συνήθως ξεκινάμε με εβδομαδιαίες συνεδρίες. Καθώς η θεραπεία προχωρά, η συχνότητα επαναξιολογείται μαζί, ανάλογα με τις ανάγκες και την πορεία σας.</p>
           </div>
           <div class="frame-card reveal">
             <div class="fc-icon">⌂</div>
@@ -606,8 +609,28 @@
           <div class="frame-card reveal">
             <div class="fc-icon">✓</div>
             <h3 data-el="Πρακτικές λεπτομέρειες" data-en="Practical details" data-de="Praktische Details">Πρακτικές λεπτομέρειες</h3>
-            <p data-el="Το ραντεβού κλείνεται εύκολα online μέσω doctoranytime, με πληρωμή με κάρτα ή Klarna. Ακύρωση ή αλλαγή έως 24 ώρες νωρίτερα γίνεται χωρίς καμία χρέωση." data-en="Appointments are easily booked online via doctoranytime, with payment by card or Klarna. Cancelling or rescheduling up to 24 hours in advance carries no charge." data-de="Termine lassen sich ganz einfach online über doctoranytime buchen, mit Zahlung per Karte oder Klarna. Eine Stornierung oder Änderung bis zu 24 Stunden im Voraus ist völlig kostenlos.">Το ραντεβού κλείνεται εύκολα online μέσω doctoranytime, με πληρωμή με κάρτα ή Klarna. Ακύρωση ή αλλαγή έως 24 ώρες νωρίτερα γίνεται χωρίς καμία χρέωση.</p>
+            <p data-el="Το ραντεβού κλείνεται με μια τηλεφωνική επικοινωνία στο 694 914 5821 ή με email. Ακύρωση ή αλλαγή έως 24 ώρες νωρίτερα γίνεται χωρίς καμία χρέωση." data-en="Appointments are easily booked online via doctoranytime, with payment by card or Klarna. Cancelling or rescheduling up to 24 hours in advance carries no charge." data-de="Ein Termin wird telefonisch unter 694 914 5821 oder per E-Mail vereinbart. Eine Stornierung oder Änderung bis zu 24 Stunden im Voraus ist völlig kostenlos.">Το ραντεβού κλείνεται με μια τηλεφωνική επικοινωνία στο 694 914 5821 ή με email. Ακύρωση ή αλλαγή έως 24 ώρες νωρίτερα γίνεται χωρίς καμία χρέωση.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Ο ΧΩΡΟΣ ============ -->
+    <section id="space">
+      <div class="wrap">
+        <p class="kicker reveal" data-el="Ο χώρος" data-de="Der Raum">Ο χώρος</p>
+        <h2 class="reveal" data-el="Ένα ζεστό, ήσυχο γραφείο στα Τρίκαλα" data-de="Eine warme, ruhige Praxis in Trikala">Ένα ζεστό, ήσυχο γραφείο στα Τρίκαλα</h2>
+        <p class="intro-space reveal" data-el="Ασκληπιού 14, στο κέντρο των Τρικάλων. Ένας χώρος φτιαγμένος για να κάθεστε άνετα και να μιλάτε χωρίς βιασύνη." data-de="Asklipiou 14, im Zentrum von Trikala. Ein Raum, in dem Sie bequem sitzen und ohne Eile sprechen können.">Ασκληπιού 14, στο κέντρο των Τρικάλων. Ένας χώρος φτιαγμένος για να κάθεστε άνετα και να μιλάτε χωρίς βιασύνη.</p>
+        <div class="space-grid">
+          <figure class="wide reveal">
+            <img src="assets/eua-kressou-grafeio-trikala.webp" width="1600" height="1263" loading="lazy" decoding="async" alt="Η Εύα Κρέσσου στο γραφείο της στα Τρίκαλα" data-lightbox>
+          </figure>
+          <figure class="reveal">
+            <img src="assets/grafeio-psychologou-trikala-anamoni.webp" width="1600" height="1200" loading="lazy" decoding="async" alt="Ο χώρος αναμονής του γραφείου ψυχοθεραπείας στα Τρίκαλα" data-lightbox>
+          </figure>
+          <figure class="reveal">
+            <img src="assets/grafeio-psychologou-trikala-synedries.webp" width="1600" height="1200" loading="lazy" decoding="async" alt="Ο χώρος των συνεδριών με τις δύο πολυθρόνες" data-lightbox>
+          </figure>
         </div>
       </div>
     </section>
@@ -696,14 +719,16 @@
           <div>
             <p class="kicker" data-el="Επικοινωνία" data-en="Contact" data-de="Kontakt">Επικοινωνία</p>
             <h2 data-el="Ας κάνουμε το πρώτο βήμα μαζί" data-en="Let's take the first step together" data-de="Lassen Sie uns gemeinsam den ersten Schritt tun">Ας κάνουμε το πρώτο βήμα μαζί</h2>
-            <p data-el="Το να ζητήσετε βοήθεια είναι ήδη μια πράξη δύναμης. Κλείστε την πρώτη σας συνεδρία online — δια ζώσης στα Τρίκαλα ή μέσω βιντεοκλήσης από όπου κι αν βρίσκεστε." data-en="Asking for help is already an act of strength. Book your first session online — in person in Trikala or via video call from wherever you are." data-de="Um Hilfe zu bitten ist bereits ein Akt der Stärke. Buchen Sie Ihre erste Sitzung online — vor Ort in Trikala oder per Videocall, egal wo Sie sich befinden.">Το να ζητήσετε βοήθεια είναι ήδη μια πράξη δύναμης. Κλείστε την πρώτη σας συνεδρία online — δια ζώσης στα Τρίκαλα ή μέσω βιντεοκλήσης από όπου κι αν βρίσκεστε.</p>
-            <a class="btn btn-primary" href="https://www.doctoranytime.gr/d/Psychologos/kressou-eua" target="_blank" rel="noopener" data-el="Κλείστε ραντεβού στο doctoranytime" data-en="Book via doctoranytime" data-de="Termin auf doctoranytime buchen">Κλείστε ραντεβού στο doctoranytime</a>
+            <p data-el="Το να ζητήσετε βοήθεια είναι ήδη μια πράξη δύναμης. Επικοινωνήστε μαζί μου τηλεφωνικά ή με email για να κλείσουμε την πρώτη σας συνεδρία — δια ζώσης στα Τρίκαλα ή μέσω βιντεοκλήσης από όπου κι αν βρίσκεστε." data-en="Asking for help is already an act of strength. Book your first session online — in person in Trikala or via video call from wherever you are." data-de="Um Hilfe zu bitten ist bereits ein Akt der Stärke. Buchen Sie Ihre erste Sitzung online — vor Ort in Trikala oder per Videocall, egal wo Sie sich befinden.">Το να ζητήσετε βοήθεια είναι ήδη μια πράξη δύναμης. Επικοινωνήστε μαζί μου τηλεφωνικά ή με email για να κλείσουμε την πρώτη σας συνεδρία — δια ζώσης στα Τρίκαλα ή μέσω βιντεοκλήσης από όπου κι αν βρίσκεστε.</p>
+            <a class="btn btn-primary" href="tel:+306949145821" data-el="Καλέστε με στο 694 914 5821" data-en="Call 694 914 5821" data-de="Rufen Sie mich an: 694 914 5821">Καλέστε με στο 694 914 5821</a>
           </div>
           <div class="contact-meta">
-            <div class="cm"><b data-el="Έδρα" data-en="Location" data-de="Standort">Έδρα</b><span data-el="Τρίκαλα, Θεσσαλία" data-en="Trikala, Thessaly, Greece" data-de="Trikala, Thessalien">Τρίκαλα, Θεσσαλία</span></div>
-            <div class="cm"><b data-el="Συνεδρίες" data-en="Sessions" data-de="Sitzungen">Συνεδρίες</b><span data-el="Δια ζώσης &amp; online (βιντεοκλήση), 50 λεπτά" data-en="In person &amp; online (video call), 50 minutes" data-de="Vor Ort &amp; online (Videocall), 50 Minuten">Δια ζώσης &amp; online (βιντεοκλήση), 50 λεπτά</span></div>
-            <div class="cm"><b data-el="Γλώσσες" data-en="Languages" data-de="Sprachen">Γλώσσες</b><span data-el="Ελληνικά · Γερμανικά" data-en="Greek · German" data-de="Griechisch · Deutsch">Ελληνικά · Γερμανικά</span></div>
-            <div class="cm"><b data-el="Άδεια ασκήσεως" data-en="License" data-de="Lizenz">Άδεια ασκήσεως</b><span data-el="Ψυχολόγου, αρ. 4421" data-en="Psychologist, No. 4421" data-de="Psychologin, Nr. 4421">Ψυχολόγου, αρ. 4421</span></div>
+            <div class="cm"><b data-el="Τηλέφωνο" data-de="Telefon">Τηλέφωνο</b><a href="tel:+306949145821">694 914 5821</a></div>
+            <div class="cm"><b data-el="Email" data-de="E-Mail">Email</b><a href="mailto:evangelia.kressou@gmail.com">evangelia.kressou@gmail.com</a></div>
+            <div class="cm"><b data-el="Διεύθυνση" data-de="Adresse">Διεύθυνση</b><a href="https://maps.google.com/?q=Asklipiou+14,+42100+Trikala" target="_blank" rel="noopener">Ασκληπιού 14, 42100 Τρίκαλα</a></div>
+            <div class="cm"><b data-el="Συνεδρίες" data-de="Sitzungen">Συνεδρίες</b><span data-el="Δια ζώσης &amp; online (βιντεοκλήση), 50 λεπτά" data-de="Vor Ort &amp; online (Videocall), 50 Minuten">Δια ζώσης &amp; online (βιντεοκλήση), 50 λεπτά</span></div>
+            <div class="cm"><b data-el="Γλώσσες" data-de="Sprachen">Γλώσσες</b><span data-el="Ελληνικά · Γερμανικά" data-de="Griechisch · Deutsch">Ελληνικά · Γερμανικά</span></div>
+            <div class="cm"><b data-el="Άδεια ασκήσεως" data-de="Lizenz">Άδεια ασκήσεως</b><span data-el="Ψυχολόγου, αρ. 4421" data-de="Psychologin, Nr. 4421">Ψυχολόγου, αρ. 4421</span></div>
           </div>
         </div>
       </div>
@@ -742,9 +767,7 @@
       });
       document.title = lang === "el"
         ? "Εύα Κρέσσου MSc — Ψυχολόγος · Ψυχοθεραπεύτρια | Τρίκαλα & Online"
-        : (lang === "en"
-          ? "Eva Kressou MSc — Psychologist · Psychotherapist | Trikala & Online"
-          : "Eva Kressou MSc — Psychologin · Psychotherapeutin | Trikala & Online");
+        : "Eva Kressou MSc — Psychologin · Psychotherapeutin | Trikala & Online";
     }
     document.querySelectorAll("[data-setlang]").forEach(function(b){
       b.addEventListener("click", function(){ setLang(b.getAttribute("data-setlang")); });
